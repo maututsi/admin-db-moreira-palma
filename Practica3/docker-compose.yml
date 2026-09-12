@@ -19,7 +19,19 @@ services:
       - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+  
+  pg_admin_local:
+    image: dpage/pgadmin4
+    container_name: pgadmin_local
+    environment:
+      PGADMIN_DEFAULT_EMAIL: maumopa0606@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: hola1234
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
 volumes:
   db_data:
   pg_data:
+  pgadmin_data:
